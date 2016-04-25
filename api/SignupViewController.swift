@@ -43,7 +43,7 @@ class SignupViewController: UIViewController {
         btnSignup.layer.masksToBounds = true
        
         //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignupViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
@@ -155,9 +155,10 @@ class SignupViewController: UIViewController {
                                 //print("Not a Dictionary")
                                 
                                 return
+                                
                             }
-                            temp = (JSONDictionary["errors"]?["full_messages"]!![0] as? String)!
-                          
+                            let err = JSONDictionary["errors"]?["full_messages"]!  as! NSArray
+                            temp = err[0]  as! String
                             
                             
                         }

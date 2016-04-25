@@ -8,7 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
-
+import Armchair
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,10 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        
-    
-        
+     
+        Armchair.appID("897006329")
+        Armchair.reviewMessage("If you like this app please consider rating. Positive ratings help us stay free. Thank you so much!")
+        Armchair.daysUntilPrompt(15)
+        Armchair.usesUntilPrompt(3)
+        Armchair.showPromptIfNecessary()
+
+
       registerForPushNotifications(application)
         
         // Override point for customization after application launch.

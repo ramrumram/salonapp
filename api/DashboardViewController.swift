@@ -47,7 +47,7 @@ class DashboardViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
         
         self.view.addSubview(proxyViewForStatusBar)
         
-        self.performSelectorOnMainThread("openBrowserView", withObject: nil, waitUntilDone: true)
+        self.performSelectorOnMainThread(#selector(DashboardViewController.openBrowserView), withObject: nil, waitUntilDone: true)
         
        
         // Do any additional setup after loading the view, typically from a nib.
@@ -112,12 +112,12 @@ class DashboardViewController: UIViewController, WKNavigationDelegate, WKUIDeleg
         
         
         //------------right  swipe gestures in view--------------//
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: Selector("rightSwiped"))
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(DashboardViewController.rightSwiped))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view.addGestureRecognizer(swipeRight)
         
         //-----------left swipe gestures in view--------------//
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: Selector("leftSwiped"))
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(DashboardViewController.leftSwiped))
         swipeLeft.direction = UISwipeGestureRecognizerDirection.Left
         self.view.addGestureRecognizer(swipeLeft)
         

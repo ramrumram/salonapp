@@ -95,9 +95,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         
         makeViewCurved()
-        
 
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+//
+               //
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
       
@@ -315,11 +316,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     if (errorstring!.containsString("DOES_NOT_EXISTS")) {
 //
                         httpMethod = "POST"
-                        self.performSelectorOnMainThread("bringSignupViewToFront", withObject: nil, waitUntilDone: true)
+                        self.performSelectorOnMainThread(#selector(ViewController.bringSignupViewToFront), withObject: nil, waitUntilDone: true)
                     }else if (errorstring!.containsString("FB_NOT_REGISTERED")){
                         //user exists through normal login! but credential error. go for update the existing..
                         httpMethod = "PATCH"
-                        self.performSelectorOnMainThread("bringSignupViewToFront", withObject: nil, waitUntilDone: true)
+                        self.performSelectorOnMainThread(#selector(ViewController.bringSignupViewToFront), withObject: nil, waitUntilDone: true)
                                            }
                     else {
                         print ("something wrong")

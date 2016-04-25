@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D784BFE31C6180A4008CADA1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D784BFE21C6180A4008CADA1 /* Default-568h@2x.png */; };
+		D7D1D4091CCDCB9200698407 /* Armchair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D1D4081CCDCB9200698407 /* Armchair.framework */; };
+		D7DA27CF1CCDCE5D004AAB26 /* Armchair.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7D1D4081CCDCB9200698407 /* Armchair.framework */; };
+		D7DA27D01CCDCE5D004AAB26 /* Armchair.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D7D1D4081CCDCB9200698407 /* Armchair.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D7DD63B91C328A1F0049AED6 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DD63B81C328A1F0049AED6 /* KeychainWrapper.swift */; };
 		D7DE69311C41633400ADD130 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = D7DE69301C41633400ADD130 /* logo2.png */; };
 		D7E05C9F1C22C290001DA979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E05C9E1C22C290001DA979 /* AppDelegate.swift */; };
@@ -44,8 +47,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D7DA27D11CCDCE5D004AAB26 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D7DA27D01CCDCE5D004AAB26 /* Armchair.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		D784BFE21C6180A4008CADA1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D7D1D4081CCDCB9200698407 /* Armchair.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Armchair.framework; path = Carthage/Build/iOS/Armchair.framework; sourceTree = "<group>"; };
 		D7DD63B81C328A1F0049AED6 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		D7DE69301C41633400ADD130 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = "<group>"; };
 		D7E05C9B1C22C290001DA979 /* SalonObjectives.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SalonObjectives.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,7 +96,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7E05CDB1C22D718001DA979 /* FBSDKCoreKit.framework in Frameworks */,
+				D7D1D4091CCDCB9200698407 /* Armchair.framework in Frameworks */,
 				D7E05CDE1C22D724001DA979 /* Bolts.framework in Frameworks */,
+				D7DA27CF1CCDCE5D004AAB26 /* Armchair.framework in Frameworks */,
 				D7E05CDF1C22D724001DA979 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +182,7 @@
 		D7E05CCC1C22C654001DA979 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D7D1D4081CCDCB9200698407 /* Armchair.framework */,
 				D7E05CDC1C22D724001DA979 /* Bolts.framework */,
 				D7E05CDD1C22D724001DA979 /* FBSDKLoginKit.framework */,
 				D7E05CDA1C22D718001DA979 /* FBSDKCoreKit.framework */,
@@ -189,6 +210,7 @@
 				D7E05C971C22C290001DA979 /* Sources */,
 				D7E05C981C22C290001DA979 /* Frameworks */,
 				D7E05C991C22C290001DA979 /* Resources */,
+				D7DA27D11CCDCE5D004AAB26 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -419,6 +441,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -457,6 +480,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -469,11 +493,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = api/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.salonobjectives.dev2;
 				PRODUCT_NAME = SalonObjectives;
 				PROVISIONING_PROFILE = "";
@@ -488,11 +517,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = api/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.salonobjectives.dev2;
 				PRODUCT_NAME = SalonObjectives;
 				PROVISIONING_PROFILE = "";
